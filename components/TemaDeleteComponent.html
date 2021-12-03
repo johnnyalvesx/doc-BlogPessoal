@@ -178,12 +178,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(temaService: <a href="../injectables/TemaService.html" target="_self">TemaService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>)</code>
+<code>constructor(temaService: <a href="../injectables/TemaService.html" target="_self">TemaService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, alertas: <a href="../injectables/AlertasService.html" target="_self">AlertasService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/delete/tema-delete/tema-delete.component.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/delete/tema-delete/tema-delete.component.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -236,6 +236,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>alertas</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AlertasService.html" target="_self" >AlertasService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -274,8 +286,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">src/app/delete/tema-delete/tema-delete.component.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">src/app/delete/tema-delete/tema-delete.component.ts:41</a></div>
                 </td>
             </tr>
 
@@ -311,8 +323,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="33"
-                            class="link-to-prism">src/app/delete/tema-delete/tema-delete.component.ts:33</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">src/app/delete/tema-delete/tema-delete.component.ts:35</a></div>
                 </td>
             </tr>
 
@@ -380,8 +392,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">src/app/delete/tema-delete/tema-delete.component.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">src/app/delete/tema-delete/tema-delete.component.ts:25</a></div>
                 </td>
             </tr>
 
@@ -422,7 +434,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/delete/tema-delete/tema-delete.component.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/delete/tema-delete/tema-delete.component.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -453,7 +465,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/delete/tema-delete/tema-delete.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/delete/tema-delete/tema-delete.component.ts:15</a></div>
                         </td>
                     </tr>
 
@@ -469,6 +481,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
 import { Tema } from &#x27;src/app/model/Tema&#x27;;
+import { AlertasService } from &#x27;src/app/service/alertas.service&#x27;;
 import { TemaService } from &#x27;src/app/service/tema.service&#x27;;
 import { environment } from &#x27;src/environments/environment.prod&#x27;;
 
@@ -486,6 +499,7 @@ export class TemaDeleteComponent implements OnInit {
     private temaService: TemaService,
     private router: Router,
     private route: ActivatedRoute,
+    private alertas: AlertasService
   ) { }
 
   ngOnInit() {
@@ -506,7 +520,7 @@ export class TemaDeleteComponent implements OnInit {
 
   apagar() {
     this.temaService.deleteTema(this.idTema).subscribe(() &#x3D;&gt; {
-      alert(&#x27;Tema apagado com sucesso!&#x27;)
+      this.alertas.showAlertSuccess(&#x27;Tema apagado com sucesso!&#x27;)
       this.router.navigate([&#x27;/tema&#x27;])
     })
   }

@@ -371,6 +371,7 @@ import { FormsModule } from &#x27;@angular/forms&#x27;;
 import { AppRoutingModule } from &#x27;./app-routing.module&#x27;;
 import { HashLocationStrategy, LocationStrategy } from &#x27;@angular/common&#x27;;
 import { ModalModule } from &#x27;ngx-bootstrap/modal&#x27;;
+import { OrderModule } from &#x27;ngx-order-pipe&#x27;;
 
 import { AppComponent } from &#x27;./app.component&#x27;;
 import { FontAwesomeModule } from &#x27;@fortawesome/angular-fontawesome&#x27;;
@@ -409,7 +410,8 @@ import { AlertasComponent } from &#x27;./alertas/alertas.component&#x27;;
     FontAwesomeModule,
     HttpClientModule,
     FormsModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    OrderModule
   ],
   providers: [{
     provide: LocationStrategy,

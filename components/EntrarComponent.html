@@ -172,12 +172,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(auth: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+<code>constructor(auth: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, alertas: <a href="../injectables/AlertasService.html" target="_self">AlertasService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/entrar/entrar.component.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/entrar/entrar.component.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -211,6 +211,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>alertas</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AlertasService.html" target="_self" >AlertasService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -256,8 +268,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">src/app/entrar/entrar.component.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">src/app/entrar/entrar.component.ts:28</a></div>
                 </td>
             </tr>
 
@@ -293,8 +305,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">src/app/entrar/entrar.component.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">src/app/entrar/entrar.component.ts:24</a></div>
                 </td>
             </tr>
 
@@ -340,7 +352,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/entrar/entrar.component.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/entrar/entrar.component.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -358,6 +370,7 @@ import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
 import { environment } from &#x27;src/environments/environment.prod&#x27;;
 import { UserLogin } from &#x27;../model/UserLogin&#x27;;
+import { AlertasService } from &#x27;../service/alertas.service&#x27;;
 import { AuthService } from &#x27;../service/auth.service&#x27;;
 
 @Component({
@@ -371,7 +384,8 @@ export class EntrarComponent implements OnInit {
 
   constructor(
     private auth: AuthService,
-    private router: Router
+    private router: Router,
+    private alertas: AlertasService
   ) { }
 
   ngOnInit() {
@@ -396,7 +410,7 @@ export class EntrarComponent implements OnInit {
       this.router.navigate([&#x27;/inicio&#x27;])
     }, erro &#x3D;&gt; {
       if (erro.status &#x3D;&#x3D; 500) {
-        alert(&#x27;Usuário ou senha estão incorretos!&#x27;)
+        this.alertas.showAlertDanger(&#x27;As senhas estão incorretas!&#x27;)
       }
     })
   }

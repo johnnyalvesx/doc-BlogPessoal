@@ -178,12 +178,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, postagemService: <a href="../injectables/PostagemService.html" target="_self">PostagemService</a>)</code>
+<code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, postagemService: <a href="../injectables/PostagemService.html" target="_self">PostagemService</a>, alertas: <a href="../injectables/AlertasService.html" target="_self">AlertasService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/delete/postagem-delete/postagem-delete.component.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/delete/postagem-delete/postagem-delete.component.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -236,6 +236,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>alertas</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AlertasService.html" target="_self" >AlertasService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -274,8 +286,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">src/app/delete/postagem-delete/postagem-delete.component.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">src/app/delete/postagem-delete/postagem-delete.component.ts:43</a></div>
                 </td>
             </tr>
 
@@ -311,8 +323,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">src/app/delete/postagem-delete/postagem-delete.component.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">src/app/delete/postagem-delete/postagem-delete.component.ts:37</a></div>
                 </td>
             </tr>
 
@@ -380,8 +392,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">src/app/delete/postagem-delete/postagem-delete.component.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">src/app/delete/postagem-delete/postagem-delete.component.ts:25</a></div>
                 </td>
             </tr>
 
@@ -422,7 +434,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/delete/postagem-delete/postagem-delete.component.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/delete/postagem-delete/postagem-delete.component.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -453,7 +465,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/delete/postagem-delete/postagem-delete.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/delete/postagem-delete/postagem-delete.component.ts:15</a></div>
                         </td>
                     </tr>
 
@@ -469,6 +481,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
 import { Postagem } from &#x27;src/app/model/Postagem&#x27;;
+import { AlertasService } from &#x27;src/app/service/alertas.service&#x27;;
 import { PostagemService } from &#x27;src/app/service/postagem.service&#x27;;
 import { environment } from &#x27;src/environments/environment.prod&#x27;;
 
@@ -485,7 +498,8 @@ export class PostagemDeleteComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private postagemService: PostagemService
+    private postagemService: PostagemService,
+    private alertas: AlertasService
   ) { }
 
   ngOnInit() {
@@ -508,7 +522,7 @@ export class PostagemDeleteComponent implements OnInit {
 
   apagar() {
     this.postagemService.deletePostagem(this.idPost).subscribe(() &#x3D;&gt; {
-      alert(&#x27;Postagem apagada com sucesso!&#x27;)
+      this.alertas.showAlertSuccess(&#x27;Postagem apagada com sucesso!&#x27;)
       this.router.navigate([&#x27;/inicio&#x27;])
     })
   }

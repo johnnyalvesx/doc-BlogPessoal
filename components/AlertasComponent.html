@@ -171,7 +171,7 @@
                                 <a href="#message" >message</a>
                             </li>
                             <li>
-                                <a href="#tipo" >tipo</a>
+                                <a href="#type" >type</a>
                             </li>
                         </ul>
                     </td>
@@ -260,8 +260,8 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="tipo"></a>
-                        <b>tipo</b>
+                        <a name="type"></a>
+                        <b>type</b>
                     </td>
                 </tr>
                 <tr>
@@ -415,7 +415,7 @@ import { BsModalRef } from &#x27;ngx-bootstrap/modal&#x27;;
 export class AlertasComponent implements OnInit {
 
   @Input() message: string
-  @Input() tipo: string &#x3D; &#x27;success&#x27;
+  @Input() type: string &#x3D; &#x27;success&#x27;
 
   constructor(
     public modal: BsModalRef
@@ -433,7 +433,7 @@ export class AlertasComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;alert alert-{{tipo}} m-0 alert-dismissible fade show &quot; role&#x3D;&quot;alert&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;alert alert-{{type}} m-0 alert-dismissible fade show &quot; role&#x3D;&quot;alert&quot;&gt;
     {{message}}
     &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;close&quot; data-dismiss&#x3D;&quot;alert&quot; aria-label&#x3D;&quot;Close&quot; (click)&#x3D;&#x27;onClose()&#x27;&gt;
         &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&amp;times;&lt;/span&gt;
@@ -473,7 +473,7 @@ export class AlertasComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="alert alert-{{tipo}} m-0 alert-dismissible fade show " role="alert">    {{message}}    <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)=\'onClose()\'>        <span aria-hidden="true">&times;</span>    </button></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="alert alert-{{type}} m-0 alert-dismissible fade show " role="alert">    {{message}}    <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)=\'onClose()\'>        <span aria-hidden="true">&times;</span>    </button></div></div>'
     var COMPONENTS = [{'name': 'AlertasComponent', 'selector': 'app-alertas'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CadastrarComponent', 'selector': 'app-cadastrar'},{'name': 'EntrarComponent', 'selector': 'app-entrar'},{'name': 'InicioComponent', 'selector': 'app-inicio'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'PostagemDeleteComponent', 'selector': 'app-postagem-delete'},{'name': 'PostagemEditComponent', 'selector': 'app-postagem-edit'},{'name': 'RodapeComponent', 'selector': 'app-rodape'},{'name': 'TemaComponent', 'selector': 'app-tema'},{'name': 'TemaDeleteComponent', 'selector': 'app-tema-delete'},{'name': 'TemaEditComponent', 'selector': 'app-tema-edit'},{'name': 'UserEditComponent', 'selector': 'app-user-edit'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AlertasComponent'};

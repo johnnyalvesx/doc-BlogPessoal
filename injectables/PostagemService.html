@@ -101,6 +101,9 @@
                                 <a href="#getByIdPostagem" >getByIdPostagem</a>
                             </li>
                             <li>
+                                <a href="#getByTituloPostagem" >getByTituloPostagem</a>
+                            </li>
+                            <li>
                                 <a href="#postPostagem" >postPostagem</a>
                             </li>
                             <li>
@@ -192,8 +195,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">src/app/service/postagem.service.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">src/app/service/postagem.service.ts:38</a></div>
                 </td>
             </tr>
 
@@ -351,6 +354,75 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="getByTituloPostagem"></a>
+                    <span class="name">
+                        <span ><b>getByTituloPostagem</b></span>
+                        <a href="#getByTituloPostagem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getByTituloPostagem(titulo: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">src/app/service/postagem.service.ts:26</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>titulo</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Postagem.html" target="_self" >Observable&lt;Postagem[]&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="postPostagem"></a>
                     <span class="name">
                         <span ><b>postPostagem</b></span>
@@ -367,8 +439,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">src/app/service/postagem.service.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">src/app/service/postagem.service.ts:30</a></div>
                 </td>
             </tr>
 
@@ -436,8 +508,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">src/app/service/postagem.service.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">src/app/service/postagem.service.ts:34</a></div>
                 </td>
             </tr>
 
@@ -553,6 +625,10 @@ export class PostagemService {
 
   getByIdPostagem(id: number): Observable&lt;Postagem&gt; {
     return this.http.get&lt;Postagem&gt;(&#x60;https://jyukisblog.herokuapp.com/postagens/${id}&#x60;, this.token)
+  }
+
+  getByTituloPostagem(titulo: string): Observable&lt;Postagem[]&gt; {
+    return this.http.get&lt;Postagem[]&gt;(&#x60;https://jyukisblog.herokuapp.com/postagens/titulo/${titulo}&#x60;, this.token)
   }
 
   postPostagem(postagem: Postagem): Observable&lt;Postagem&gt; {

@@ -175,12 +175,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(temaService: <a href="../injectables/TemaService.html" target="_self">TemaService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>)</code>
+<code>constructor(temaService: <a href="../injectables/TemaService.html" target="_self">TemaService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, alertas: <a href="../injectables/AlertasService.html" target="_self">AlertasService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/edit/tema-edit/tema-edit.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/edit/tema-edit/tema-edit.component.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -233,6 +233,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>alertas</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AlertasService.html" target="_self" >AlertasService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -271,8 +283,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">src/app/edit/tema-edit/tema-edit.component.ts:37</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">src/app/edit/tema-edit/tema-edit.component.ts:39</a></div>
                 </td>
             </tr>
 
@@ -308,8 +320,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">src/app/edit/tema-edit/tema-edit.component.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">src/app/edit/tema-edit/tema-edit.component.ts:33</a></div>
                 </td>
             </tr>
 
@@ -377,8 +389,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">src/app/edit/tema-edit/tema-edit.component.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">src/app/edit/tema-edit/tema-edit.component.ts:24</a></div>
                 </td>
             </tr>
 
@@ -424,7 +436,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/edit/tema-edit/tema-edit.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/edit/tema-edit/tema-edit.component.ts:15</a></div>
                         </td>
                     </tr>
 
@@ -440,6 +452,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
 import { Tema } from &#x27;src/app/model/Tema&#x27;;
+import { AlertasService } from &#x27;src/app/service/alertas.service&#x27;;
 import { TemaService } from &#x27;src/app/service/tema.service&#x27;;
 import { environment } from &#x27;src/environments/environment.prod&#x27;;
 
@@ -455,7 +468,8 @@ export class TemaEditComponent implements OnInit {
   constructor(
     private temaService: TemaService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private alertas: AlertasService
   ) { }
 
   ngOnInit() {
@@ -476,7 +490,7 @@ export class TemaEditComponent implements OnInit {
   atualizar() {
     this.temaService.putTema(this.tema).subscribe((resp: Tema) &#x3D;&gt; {
       this.tema &#x3D; resp
-      alert(&#x27;Tema atualizado com sucesso!&#x27;)
+      this.alertas.showAlertSuccess(&#x27;Tema atualizado com sucesso!&#x27;)
       this.router.navigate([&#x27;/tema&#x27;])
     })
   }
